@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'war'
+apply plugin: "com.jfrog.artifactory"
 
 group('com.demo')
 version('1.0')
@@ -21,9 +22,9 @@ buildscript {
     }
 }
 
-allprojects {
+/*allprojects {
     apply plugin: "com.jfrog.artifactory"
-}
+}*/
 artifactory {
     contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
     publish {
