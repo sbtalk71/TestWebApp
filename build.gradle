@@ -1,21 +1,6 @@
-buildscript {
-    repositories {
-        mavenCentral()
-        
-    }
-    dependencies {
-        //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
-        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
-    }
-}
-plugins {
-    id 'java'
-    id 'war'
-}
+apply plugin: 'java'
+apply plugin: 'war'
 
-allprojects {
-    apply plugin: "com.jfrog.artifactory"
-}
 group('com.demo')
 version('1.0')
 sourceCompatibility='1.8'
@@ -23,6 +8,21 @@ sourceCompatibility='1.8'
 dependencies {
     compileOnly 'javax.servlet:javax.servlet-api:3.1.0'
     testImplementation 'junit:junit:4.12'
+}
+//artifactory configuration
+buildscript {
+    repositories {
+        mavenCentral()
+
+    }
+    dependencies {
+        //Check for the latest version here: http://plugins.gradle.org/plugin/com.jfrog.artifactory
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4+"
+    }
+}
+
+allprojects {
+    apply plugin: "com.jfrog.artifactory"
 }
 artifactory {
     contextUrl = "${artifactory_contextUrl}"   //The base Artifactory URL if not overridden by the publisher/resolver
