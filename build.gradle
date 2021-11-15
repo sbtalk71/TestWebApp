@@ -12,7 +12,7 @@ dependencies {
 //artifactory configuration
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
 
     }
     dependencies {
