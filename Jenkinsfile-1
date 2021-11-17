@@ -1,0 +1,23 @@
+pipeline{
+    agent any
+    stages{
+        stage("checkout"){
+            steps{
+                git "https://github.com/sbtalk71/TestWebApp.git"
+            }
+        }
+        stage("compile"){
+            steps{
+            sh "mvn clean compile"
+            }
+        }
+        
+         stage("package"){
+            steps{
+            sh "mvn package"
+            }
+        }
+
+    }
+   
+}
