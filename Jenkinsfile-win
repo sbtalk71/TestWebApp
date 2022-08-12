@@ -1,6 +1,11 @@
 pipeline{
     agent any
     stages{
+    stage("Start"){
+            steps{
+                bat "echo Starting the remote Job"
+            }
+        }
         stage("checkout"){
             steps{
                 git "https://github.com/sbtalk71/TestWebApp.git"
