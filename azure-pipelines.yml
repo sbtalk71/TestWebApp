@@ -6,7 +6,7 @@
 trigger:
 - master
 
-pool: my-pc-agent-pool
+pool: Azure Pipelines
   
 
 steps:
