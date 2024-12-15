@@ -1,5 +1,6 @@
 # Maven
 
+
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -30,3 +31,10 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Pay-As-You-Go(1)(1a4fd15f-e4d8-46a6-a2b9-43b0b207b218)'
+    appType: 'webAppLinux'
+    WebAppName: 'TestWebAppShan'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.war'
